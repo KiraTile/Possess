@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class PlayerFollower : MonoBehaviour
 {
+    public static PlayerFollower Instance;
     public Collider Target;
     // Start is called before the first frame update
     private void Awake()
     {
-        PlayerController.Possession.AddListener(SwitchTarget);
+        Instance = this;
+        PlayerController.OnPossession.AddListener(SwitchTarget);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+
+        Quaternion LookAtRotationOnly_Y = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+
+        transform.rotation = LookAtRotationOnly_Y;
+
         transform.position = Target.bounds.center;
+      
     }
     
     void SwitchTarget()

@@ -71,9 +71,9 @@ public class CameraController : MonoBehaviour
         transform.RotateAround(targetObject.position, Vector3.up, y_rotate * cameraFollowSmoothness);
         transform.RotateAround(targetObject.position, transform.right,  x_rotate * cameraFollowSmoothness);
 
-        float clampedFloat = Mathf.Clamp(transform.eulerAngles.x, CameraAnglesConstainDown, CameraAnglesConstainUp);
+        float clampedFloat = Mathf.Clamp(transform.eulerAngles.x - x_rotate, CameraAnglesConstainDown, CameraAnglesConstainUp);
 
-        transform.eulerAngles = new Vector3(clampedFloat, transform.eulerAngles.y, transform.eulerAngles.z);
+       // transform.eulerAngles = new Vector3(clampedFloat, transform.eulerAngles.y, transform.eulerAngles.z);
         Vector3 desiredPosition;
         Ray ray = new Ray(targetObject.transform.position, transform.position - targetObject.transform.position);
         RaycastHit hit;

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public int PossessableLayer;
     public Vector3 AimDestination;
 
-    public static UnityEvent Possession = new UnityEvent();
+    public static UnityEvent OnPossession = new UnityEvent();
     Ray ray;
     // Start is called before the first frame update
     private void Awake()
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         CurrentPossessed.gameObject.layer = PossessableLayer;
         CurrentPossessed = possessable;
         CurrentPossessed.gameObject.layer = CurrentlyPossessedLayer;
-        Possession.Invoke();
+        OnPossession.Invoke();
 
     }
 
