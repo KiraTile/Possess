@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
 
     public float rotationSpeed;
 
+    private float sizeOfCurrentFollowedObject;
+
 
     float y_rotate;
     float x_rotate;
@@ -31,7 +33,7 @@ public class CameraController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-
+        PlayerController.OnPossession.AddListener(UpdateSizeOfPossessable);
     }
     private void Awake()
     {
@@ -51,6 +53,11 @@ public class CameraController : MonoBehaviour
         OrbitCamera(CameraInput);
     }
 
+
+    public void UpdateSizeOfPossessable()
+    {
+         sizeOfCurrentFollowedObject = PlayerController.CurrentPossessed.GetComponent<Collider>().bounds.extents.sqrMagnitude;
+    }
     public void UpdateCameraInput(InputAction.CallbackContext context)
     {
         CameraInput = context.ReadValue<Vector2>();
@@ -76,7 +83,7 @@ public class CameraController : MonoBehaviour
 
         Ray ray = new Ray(targetObject.transform.position, transform.position - targetObject.transform.position);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit, CameraDistance, CameraCollisionLayer, QueryTriggerInteraction.Collide);
+        Physics.Raycast(ray, out hit, CameraDistance + sizeOfCurrentFollowedObject, CameraCollisionLayer, QueryTriggerInteraction.Collide);
        
 
         Vector3 desiredPosition;
@@ -91,7 +98,7 @@ public class CameraController : MonoBehaviour
         else
         {
           
-            desiredPosition = (transform.position - targetObject.position).normalized * CameraDistance + targetObject.position;
+            desiredPosition = (transform.position - targetObject.position).normalized * (CameraDistance + sizeOfCurrentFollowedObject) + targetObject.position;
            
         }
 

@@ -242,25 +242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519470711}
     m_Modifications:
-    - target: {fileID: 1734906247025861910, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734906247025861910, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 027cb3d3d7dc79d41ad763e01759de07, type: 2}
     - target: {fileID: 1734906247025861912, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
       propertyPath: m_Name
       value: Stud (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734906247025861912, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1734906247025861913, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
@@ -317,51 +302,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2172296241736218877, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632030346095322957, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632030346095322957, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: MaxSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: TorqueMultiplier
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: HorizontalMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: JumpMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: RB
-      value: 
-      objectReference: {fileID: 532327419}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1a3cf52f9ad9242af22948fec2ff22, type: 3}
 --- !u!1 &230644743
@@ -464,12 +404,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 226959820}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &532327419 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3632030346095322957, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-    type: 3}
-  m_PrefabInstance: {fileID: 226959820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &535659965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,10 +416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962132, guid: becd2d78967283844a95d05cbcf3b197,
+    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: MaxAngularVelocity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -542,16 +476,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.3190002
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becd2d78967283844a95d05cbcf3b197, type: 3}
 --- !u!4 &535829292 stripped
@@ -584,10 +508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962132, guid: becd2d78967283844a95d05cbcf3b197,
+    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: MaxAngularVelocity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -643,16 +567,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.3190002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becd2d78967283844a95d05cbcf3b197, type: 3}
@@ -749,10 +663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962132, guid: becd2d78967283844a95d05cbcf3b197,
+    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: MaxAngularVelocity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -808,16 +722,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.3190002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becd2d78967283844a95d05cbcf3b197, type: 3}
@@ -1374,10 +1278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962132, guid: becd2d78967283844a95d05cbcf3b197,
+    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: MaxAngularVelocity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -1433,16 +1337,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.3190002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becd2d78967283844a95d05cbcf3b197, type: 3}
@@ -1546,12 +1440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f3660dfea2a6d344b36f86a1e5087bc, type: 3}
---- !u!54 &1683111267 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3632030346095322957, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-    type: 3}
-  m_PrefabInstance: {fileID: 1734906247220460510}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,25 +2038,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519470711}
     m_Modifications:
-    - target: {fileID: 1734906247025861910, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734906247025861910, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 027cb3d3d7dc79d41ad763e01759de07, type: 2}
     - target: {fileID: 1734906247025861912, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
       propertyPath: m_Name
       value: Stud
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734906247025861912, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1734906247025861913, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
@@ -2225,51 +2098,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 22.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2172296241736218877, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632030346095322957, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632030346095322957, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: MaxSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
       propertyPath: TorqueMultiplier
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
       propertyPath: MaxAngularVelocity
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
         type: 3}
-      propertyPath: HorizontalMultiplier
-      value: 1
+      propertyPath: forceMode
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: JumpMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: RB
-      value: 
-      objectReference: {fileID: 1683111267}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1a3cf52f9ad9242af22948fec2ff22, type: 3}
 --- !u!1001 &4345458284109635252
@@ -2287,12 +2130,12 @@ PrefabInstance:
     - target: {fileID: 4345458283787917200, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
         type: 3}
       propertyPath: MaxAngularVelocity
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4345458283787917200, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
         type: 3}
       propertyPath: TorqueMultiplier
-      value: 1000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4345458283787917201, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
         type: 3}
@@ -2462,10 +2305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962132, guid: becd2d78967283844a95d05cbcf3b197,
+    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: MaxAngularVelocity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -2521,16 +2364,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.3190002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becd2d78967283844a95d05cbcf3b197, type: 3}
