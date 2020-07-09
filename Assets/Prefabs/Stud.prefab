@@ -127,8 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RB: {fileID: 3632030346095322957}
   MaxSpeed: 100
-  TorqueMultiplier: 100
-  MaxAngularVelocity: 30
+  TorqueMultiplier: 50
+  MaxAngularVelocity: 5
   HorizontalMultiplier: 1
   JumpMultiplier: 1
-  forceMode: 0
+  forceMode: 2
