@@ -68,34 +68,41 @@ public class CameraController : MonoBehaviour
 
         transform.LookAt(targetObject);
 
-        transform.RotateAround(targetObject.position, Vector3.up, y_rotate * cameraFollowSmoothness);
-        transform.RotateAround(targetObject.position, transform.right,  x_rotate * cameraFollowSmoothness);
+       
 
-        float clampedFloat = Mathf.Clamp(transform.eulerAngles.x - x_rotate, CameraAnglesConstainDown, CameraAnglesConstainUp);
+       transform.RotateAround(targetObject.position, Vector3.up, y_rotate * cameraFollowSmoothness);
+       transform.RotateAround(targetObject.position, Vector3.right,  x_rotate * cameraFollowSmoothness);
 
-       // transform.eulerAngles = new Vector3(clampedFloat, transform.eulerAngles.y, transform.eulerAngles.z);
-        Vector3 desiredPosition;
+
+            float temp = Mathf.Clamp(transform.rotation.eulerAngles.x, CameraAnglesConstainDown,CameraAnglesConstainUp);
+        transform.rotation = Quaternion.Euler(new Vector3(temp, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
+
+
         Ray ray = new Ray(targetObject.transform.position, transform.position - targetObject.transform.position);
         RaycastHit hit;
         Physics.Raycast(ray, out hit, CameraDistance, CameraCollisionLayer, QueryTriggerInteraction.Collide);
-        Debug.DrawLine(targetObject.transform.position, transform.position);
+        //Debug.DrawLine(targetObject.transform.position, transform.position);
+
+        Vector3 desiredPosition;
+        Vector3 ConstainedDiseredPosition;
         if (hit.collider)
         {
              desiredPosition = (transform.position - targetObject.position).normalized * 
-                Vector3.Distance(targetObject.transform.position, hit.point + (hit.point - targetObject.position) * CameraPhysicalSize) + targetObject.position;
-            Vector3 ConstainedDiseredPosition = new Vector3(desiredPosition.x, Mathf.Clamp(desiredPosition.y, CameraMinYDelta + targetObject.position.y, CameraMaxYDelta + targetObject.position.y),
+             Vector3.Distance(targetObject.transform.position, hit.point + (hit.point - targetObject.position) * CameraPhysicalSize) + targetObject.position;
+             ConstainedDiseredPosition = new Vector3(desiredPosition.x, Mathf.Clamp(desiredPosition.y, CameraMinYDelta + targetObject.position.y, CameraMaxYDelta + targetObject.position.y),
                 desiredPosition.z);
-            transform.position = Vector3.MoveTowards(transform.position, ConstainedDiseredPosition, Time.deltaTime * cameraFollowSpeed);
+           
         }
         else
         {
           
             desiredPosition = (transform.position - targetObject.position).normalized * CameraDistance + targetObject.position;
-            Vector3 ConstainedDiseredPosition = new Vector3(desiredPosition.x, Mathf.Clamp(desiredPosition.y, CameraMinYDelta + targetObject.position.y, CameraMaxYDelta + targetObject.position.y),
+            ConstainedDiseredPosition = new Vector3(desiredPosition.x, Mathf.Clamp(desiredPosition.y, CameraMinYDelta + targetObject.position.y, CameraMaxYDelta + targetObject.position.y),
                 desiredPosition.z);
-            transform.position = Vector3.MoveTowards(transform.position, ConstainedDiseredPosition, Time.deltaTime * cameraFollowSpeed);
         }
-       
+
+        transform.position = Vector3.MoveTowards(transform.position, ConstainedDiseredPosition, Time.deltaTime * cameraFollowSpeed);
+
     }
 
 
