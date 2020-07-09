@@ -7,11 +7,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     public float CameraDistance = 3;
-
-
-    public float CameraAnglesConstainUp = 300, CameraAnglesConstainDown = 100;
-
-    public float CameraMaxYDelta = 2, CameraMinYDelta = 0;
+    
 
     public float CameraPhysicalSize = 0.5f;
     public Transform targetObject;
@@ -72,7 +68,7 @@ public class CameraController : MonoBehaviour
        
 
        transform.RotateAround(targetObject.position, Vector3.up, y_rotate * cameraFollowSmoothness);
-       transform.RotateAround(targetObject.position, Vector3.left,  x_rotate * cameraFollowSmoothness);
+       transform.RotateAround(targetObject.position, -PlayerFollower.Instance.transform.right,  x_rotate * cameraFollowSmoothness);
 
 
         
@@ -99,7 +95,7 @@ public class CameraController : MonoBehaviour
            
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime * cameraFollowSpeed);
+        transform.position =  Vector3.MoveTowards(transform.position, desiredPosition, Time.smoothDeltaTime * cameraFollowSpeed);
 
     }
 

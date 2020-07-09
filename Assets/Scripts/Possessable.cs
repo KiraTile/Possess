@@ -8,7 +8,7 @@ public class Possessable : MonoBehaviour, IPossessable
     public float MaxSpeed = 10;
     public float TorqueMultiplier = 10;
     public float MaxAngularVelocity = 10;
-    public float HorizontalMultiplier, JumpMultiplier;
+    public float HorizontalMultiplier = 1, JumpMultiplier = 1;
     public ForceMode forceMode;
     void Start()
     {

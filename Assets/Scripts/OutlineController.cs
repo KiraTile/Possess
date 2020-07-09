@@ -6,7 +6,7 @@ public class OutlineController : MonoBehaviour
 {
     public Material OutlineMaterial;
     public static OutlineController Instance;
-    public List<Renderer> OutlinedRenderers;
+    public Renderer PreviousOutlinedRenderer;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -25,14 +25,15 @@ public class OutlineController : MonoBehaviour
 
     public void OutlineSingleRenderer(Renderer renderer)
     {
-        if(!OutlinedRenderers.Contains(renderer))
-        OutlinedRenderers.Add(renderer);
-        foreach (Renderer outlinedRenderer in OutlinedRenderers)
-        {
-            Material[] matArray1 = outlinedRenderer.materials;
-            matArray1[1] = null ;
-            outlinedRenderer.materials = matArray1;
-        }
+        if (PreviousOutlinedRenderer == renderer)
+            return;
+
+
+        if (PreviousOutlinedRenderer)
+            DisableOutlines();
+
+        PreviousOutlinedRenderer = renderer;
+      
         
 
         Material[] matArray = renderer.materials;
@@ -42,13 +43,16 @@ public class OutlineController : MonoBehaviour
 
     public void DisableOutlines()
     {
-       
-       
-            foreach (Renderer outlinedRenderer in OutlinedRenderers)
-            {
-                Material[] matArray1 = outlinedRenderer.materials;
-                matArray1[1] = null;
-                outlinedRenderer.materials = matArray1;
-            }
+
+
+        if (PreviousOutlinedRenderer)
+        {
+            Material[] matArray1 = PreviousOutlinedRenderer.materials;
+            matArray1[1] = null;
+            PreviousOutlinedRenderer.materials = matArray1;
+            PreviousOutlinedRenderer = null;
+        }
+               
+         
     }
 }
