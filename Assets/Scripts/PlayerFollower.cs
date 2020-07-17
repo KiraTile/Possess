@@ -29,4 +29,8 @@ public class PlayerFollower : MonoBehaviour
     {
         Target = PlayerController.CurrentPossessed.GetComponent<Collider>();
     }
+    private void OnDestroy()
+    {
+        PlayerController.OnPossession.RemoveListener(SwitchTarget);
+    }
 }

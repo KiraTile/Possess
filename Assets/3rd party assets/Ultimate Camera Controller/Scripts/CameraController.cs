@@ -3,7 +3,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
+[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
     public float CameraDistance = 3;
@@ -107,7 +107,10 @@ public class CameraController : MonoBehaviour
     }
 
 
-
+    private void OnDestroy()
+    {
+        PlayerController.OnPossession.RemoveListener(UpdateSizeOfPossessable);
+    }
 
 }
 

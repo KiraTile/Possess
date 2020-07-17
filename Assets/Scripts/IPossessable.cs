@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IPossessable
 {
-    
+    void MoveByForceHorizontal();
+    void ApplyTorque();
 }

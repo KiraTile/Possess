@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+[RequireComponent(typeof(Rigidbody))]
 public class Possessable : MonoBehaviour, IPossessable
 {
-    public Rigidbody RB;
+    Rigidbody RB;
     public float MaxSpeed = 10;
     public float TorqueMultiplier = 10;
     public float MaxAngularVelocity = 10;
     public float HorizontalMultiplier = 1, JumpMultiplier = 1;
-    public ForceMode forceMode;
+    public ForceMode TorqueForceMode;
     void Start()
     {
-        RB.maxAngularVelocity = MaxAngularVelocity; 
+        
         RB = GetComponent<Rigidbody>();
+        RB.maxAngularVelocity = MaxAngularVelocity;
     }
     public void MoveByForceHorizontal()
     {
@@ -37,8 +39,8 @@ public class Possessable : MonoBehaviour, IPossessable
     {
         Vector3 torque = PlayerController.Instance.TorqueInput * TorqueMultiplier;
 
-        RB.AddTorque((-PlayerFollower.Instance.transform.forward * torque.x) * Time.deltaTime, forceMode);
-        RB.AddTorque((PlayerFollower.Instance.transform.right * torque.y) * Time.deltaTime, forceMode);
+        RB.AddTorque((-PlayerFollower.Instance.transform.forward * torque.x) * Time.deltaTime, TorqueForceMode);
+        RB.AddTorque((PlayerFollower.Instance.transform.right * torque.y) * Time.deltaTime, TorqueForceMode);
        
     }
     
