@@ -63,6 +63,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 32314ba6cfa407640bffbb7b20708949, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +112,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &4345458283787917200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,10 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78eef3e8d3e9184b8dde95020ab3269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB: {fileID: 4345458283787917201}
-  MaxSpeed: 100
-  TorqueMultiplier: 2000
-  MaxAngularVelocity: 5
-  HorizontalMultiplier: 1
-  JumpMultiplier: 1
   forceMode: 0
+  moveType: 2
+  TorqueMultiplier: 3000
+  MaxAngularVelocity: 5
+  MaxSpeed: 100
+  ForcePower: 1

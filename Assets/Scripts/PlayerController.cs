@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CurrentPossessed)
         {
-            CurrentPossessed.ApplyTorque();
+            CurrentPossessed.Move();
         }
     }
 

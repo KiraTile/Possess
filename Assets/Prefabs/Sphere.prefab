@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995169776626608560}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.0194674, y: 0.55560005, z: 0.9956181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -112,7 +112,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &5995169776626608561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78eef3e8d3e9184b8dde95020ab3269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB: {fileID: 5995169776626608562}
-  MaxSpeed: 100
-  TorqueMultiplier: 3000
-  MaxAngularVelocity: 5
-  HorizontalMultiplier: 1
-  JumpMultiplier: 1
   forceMode: 0
+  moveType: 2
+  TorqueMultiplier: 1000
+  MaxAngularVelocity: 1e+13
+  MaxSpeed: 100
+  ForcePower: 1

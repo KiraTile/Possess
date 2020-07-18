@@ -6,23 +6,29 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    public float CameraDistance = 3;
-    
-
-    public float CameraPhysicalSize = 0.5f;
     public Transform targetObject;
 
+    [SerializeReference]
+    float CameraDistance = 3;
 
+    [SerializeReference]
+    float CameraPhysicalSize = 0.5f;
+  
+
+    [SerializeReference]
     [Range(0f, 1f)]
-    public float cameraFollowSmoothness = 0.1f;
-    public float cameraFollowSpeed;
-    public Vector2 CameraInput;
+    float cameraFollowSmoothness = 0.1f;
+    [SerializeReference]
+    float cameraFollowSpeed;
+    Vector2 CameraInput;
 
-    public LayerMask CameraCollisionLayer;
+    [SerializeReference]
+    LayerMask CameraCollisionLayer;
 
-    public float rotationSpeed;
-
-    private float sizeOfCurrentFollowedObject;
+    [SerializeReference]
+    float rotationSpeed;
+   
+    float sizeOfCurrentFollowedObject;
 
 
     float y_rotate;
@@ -54,16 +60,16 @@ public class CameraController : MonoBehaviour
     }
 
 
-    public void UpdateSizeOfPossessable()
+     void UpdateSizeOfPossessable()
     {
          sizeOfCurrentFollowedObject = PlayerController.CurrentPossessed.GetComponent<Collider>().bounds.extents.sqrMagnitude;
     }
-    public void UpdateCameraInput(InputAction.CallbackContext context)
+     void UpdateCameraInput(InputAction.CallbackContext context)
     {
         CameraInput = context.ReadValue<Vector2>();
     }
 
-    public void OrbitCamera(Vector2 input)
+     void OrbitCamera(Vector2 input)
     {
         y_rotate = input.x * rotationSpeed;
         x_rotate = input.y * rotationSpeed;
@@ -92,17 +98,18 @@ public class CameraController : MonoBehaviour
         {
              desiredPosition = (transform.position - targetObject.position).normalized * 
              Vector3.Distance(targetObject.transform.position, hit.point + (hit.point - targetObject.position) * CameraPhysicalSize) + targetObject.position;
-            
-           
+
+            transform.position = desiredPosition;
         }
         else
         {
           
             desiredPosition = (transform.position - targetObject.position).normalized * (CameraDistance + sizeOfCurrentFollowedObject) + targetObject.position;
-           
+            transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.smoothDeltaTime * cameraFollowSpeed);
+
         }
 
-        transform.position =  Vector3.MoveTowards(transform.position, desiredPosition, Time.smoothDeltaTime * cameraFollowSpeed);
+      
 
     }
 

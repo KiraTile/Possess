@@ -302,11 +302,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: TorqueMultiplier
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1a3cf52f9ad9242af22948fec2ff22, type: 3}
 --- !u!1 &230644743
@@ -456,25 +451,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7287066
+      value: 1.762
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27160004
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.985515
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -548,25 +538,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.022722065
+      value: -0.022
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.004399961
+      value: -0.011
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1600895
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -703,11 +688,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -809,7 +789,7 @@ GameObject:
   - component: {fileID: 1093645507}
   - component: {fileID: 1093645509}
   m_Layer: 0
-  m_Name: Scripts
+  m_Name: Other Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1303,7 @@ GameObject:
   - component: {fileID: 1539700712}
   - component: {fileID: 1539700711}
   - component: {fileID: 1539700710}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,11 +1379,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Paint 1G Bucket (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
@@ -1674,7 +1649,7 @@ MonoBehaviour:
   m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 1
-  m_Dithering: 0
+  m_Dithering: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -1690,15 +1665,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabcbcd9bb58adc4d9496907d14c5d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetObject: {fileID: 230644745}
   CameraDistance: 3
   CameraPhysicalSize: -0.1
-  targetObject: {fileID: 230644745}
   cameraFollowSmoothness: 0.141
   cameraFollowSpeed: 20
-  CameraInput: {x: 0, y: 0}
   CameraCollisionLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   rotationSpeed: 1
 --- !u!4 &1842809129 stripped
 Transform:
@@ -1893,7 +1867,7 @@ GameObject:
   - component: {fileID: 33979525148574904}
   - component: {fileID: 23443988296666772}
   - component: {fileID: 1488524222}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Drywall Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,7 +1904,7 @@ GameObject:
   - component: {fileID: 33373437803218834}
   - component: {fileID: 23575124070782552}
   - component: {fileID: 65922563286955878}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2220,11 +2194,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 22.2
       objectReference: {fileID: 0}
-    - target: {fileID: 8267481109149658494, guid: 0a1a3cf52f9ad9242af22948fec2ff22,
-        type: 3}
-      propertyPath: TorqueMultiplier
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1a3cf52f9ad9242af22948fec2ff22, type: 3}
 --- !u!1001 &4345458284109635252
@@ -2234,21 +2203,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519470711}
     m_Modifications:
-    - target: {fileID: 4345458283787917200, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
-        type: 3}
-      propertyPath: TorqueMultiplier
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4345458283787917203, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4345458283787917203, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
-        type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 32314ba6cfa407640bffbb7b20708949, type: 2}
     - target: {fileID: 4345458283787917207, guid: 7dc09d9970f7f5f4abbd2ef5c3fa6ad9,
         type: 3}
       propertyPath: m_Name
@@ -2322,6 +2276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lightmapping
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373048193643737941, guid: bf0a225a9ff184f2789f3036faaa9150,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4410402899750998667, guid: bf0a225a9ff184f2789f3036faaa9150,
         type: 3}
@@ -2409,13 +2368,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5995169776626608561, guid: e69eed420b2fca24898f2f37afa65a46,
         type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 1e+13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995169776626608561, guid: e69eed420b2fca24898f2f37afa65a46,
-        type: 3}
-      propertyPath: TorqueMultiplier
-      value: 1000
+      propertyPath: moveType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5995169776626608566, guid: e69eed420b2fca24898f2f37afa65a46,
         type: 3}
@@ -2486,25 +2440,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint 1G Bucket
       objectReference: {fileID: 0}
-    - target: {fileID: 8973173321352962134, guid: becd2d78967283844a95d05cbcf3b197,
-        type: 3}
-      propertyPath: MaxAngularVelocity
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3341983
+      value: 0.292
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69060004
+      value: 0.026
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.32101026
+      value: 0.398
       objectReference: {fileID: 0}
     - target: {fileID: 8973173321352962135, guid: becd2d78967283844a95d05cbcf3b197,
         type: 3}

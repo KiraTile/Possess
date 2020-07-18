@@ -98,7 +98,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &8973173321352962134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,13 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78eef3e8d3e9184b8dde95020ab3269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB: {fileID: 8973173321352962132}
-  MaxSpeed: 100
+  forceMode: 0
+  moveType: 2
   TorqueMultiplier: 50
   MaxAngularVelocity: 50
-  HorizontalMultiplier: 1
-  JumpMultiplier: 1
-  forceMode: 0
+  MaxSpeed: 100
+  ForcePower: 1
 --- !u!64 &317226525
 MeshCollider:
   m_ObjectHideFlags: 0

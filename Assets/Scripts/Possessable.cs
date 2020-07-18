@@ -3,45 +3,95 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
-public class Possessable : MonoBehaviour, IPossessable
+public class Possessable : MonoBehaviour
+
 {
     Rigidbody RB;
-    public float MaxSpeed = 10;
-    public float TorqueMultiplier = 10;
-    public float MaxAngularVelocity = 10;
-    public float HorizontalMultiplier = 1, JumpMultiplier = 1;
-    public ForceMode TorqueForceMode;
+        [Header("General")]
+
+  
+
+    [SerializeField]
+    ForceMode forceMode;
+
+    [SerializeField]
+    MoveType moveType = MoveType.Both;
+
+        [Header("Movement by torque")]
+
+    [SerializeField]
+    float TorqueMultiplier = 10;
+    [SerializeField]
+    float MaxAngularVelocity = 10;
+
+        [Header("Movement by force")]
+
+    [SerializeField]
+    float MaxSpeed = 10;
+    [SerializeField]
+    float ForcePower = 1;
+
+
+
+   
+   
+    
     void Start()
     {
         
         RB = GetComponent<Rigidbody>();
         RB.maxAngularVelocity = MaxAngularVelocity;
     }
-    public void MoveByForceHorizontal()
+
+    public void Move()
     {
-        Vector3 force = new Vector3(PlayerController.Instance.HorizontalInput * HorizontalMultiplier, 0);
-
-        float multiplier = 1;
-
-        if (PlayerController.Instance.HorizontalInput > 0)
+        switch (moveType)
         {
-            multiplier = 1 - (Mathf.Abs(Mathf.Clamp(RB.velocity.x, 0, MaxSpeed)) / MaxSpeed);
-        }
-        if (PlayerController.Instance.HorizontalInput < 0)
-        {
-            multiplier = 1 - (Mathf.Abs(Mathf.Clamp(RB.velocity.x, -MaxSpeed, 0)) / MaxSpeed);
-        }
+            case MoveType.Both:
+                {
+                    MoveByForceHorizontal();
+                    ApplyTorque();
+                    break;
+                }
+            case MoveType.Force:
+                {
+                    MoveByForceHorizontal();
+                    break;
+                }
+            case MoveType.Torque:
+                {
+                    ApplyTorque();
+                    break;
+                }
 
-        RB.AddForce(force * multiplier, ForceMode.Force);
-        Debug.Log("Force: " + force * multiplier);
+        }
+           
+      
+        
     }
-    public void ApplyTorque()
+
+     void MoveByForceHorizontal()
+    {
+        Vector3 force = PlayerController.Instance.TorqueInput * ForcePower;
+
+        RB.AddForce((PlayerFollower.Instance.transform.right * force.x) * Time.deltaTime, forceMode);
+        RB.AddForce((PlayerFollower.Instance.transform.forward * force.y) * Time.deltaTime, forceMode);
+
+    }
+     void ApplyTorque()
     {
         Vector3 torque = PlayerController.Instance.TorqueInput * TorqueMultiplier;
 
-        RB.AddTorque((-PlayerFollower.Instance.transform.forward * torque.x) * Time.deltaTime, TorqueForceMode);
-        RB.AddTorque((PlayerFollower.Instance.transform.right * torque.y) * Time.deltaTime, TorqueForceMode);
+        RB.AddTorque((-PlayerFollower.Instance.transform.forward * torque.x) * Time.deltaTime, forceMode);
+        RB.AddTorque((PlayerFollower.Instance.transform.right * torque.y) * Time.deltaTime, forceMode);
        
+    }
+     enum MoveType
+    {
+        Torque,
+        Force,
+        Both
+          
     }
     
 }
