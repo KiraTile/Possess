@@ -8,27 +8,31 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     [Tooltip("Which object is possessed at the start of the scene")]
-    public Possessable StartingPossessed;
+    [SerializeField]
+    Possessable StartingPossessed;
     [Tooltip("Currently possessed object")]
+    [SerializeField]
     public static Possessable CurrentPossessed;
     [Tooltip("Possessable object you are currently aiming at")]
-    public Possessable AimedAt;
-    public float AimDistance = 3;
+    [SerializeField]
+    Possessable AimedAt;
+    [SerializeField]
+    float AimDistance = 3;
     [Tooltip("Radius of the circle at the end of the aim raycast. Used to pick up objects you are not directly aiming at(aim assist)")]
-    public float AimRadius = 1;
-    
-    public LayerMask layerMask;
+    [SerializeField]
+    float AimRadius = 1;
+    [SerializeField]
+    LayerMask layerMask;
     [Tooltip("Offset of the aim")]
-    public Vector3 offset;
+    [SerializeField]
+    Vector3 offset;
 
-    [HideInInspector]
-    public Vector3 LastAimDirection;
-    [HideInInspector]
-    public float HorizontalInput;
+   
+    Vector3 LastAimDirection;
+    float HorizontalInput;
     [HideInInspector]
     public Vector3 TorqueInput;
-    public int CurrentlyPossessedLayer;
-    public int PossessableLayer;
+    [HideInInspector]
     public Vector3 AimDestination;
 
     public static UnityEvent OnPossession = new UnityEvent();
@@ -92,10 +96,10 @@ public class PlayerController : MonoBehaviour
 
 
         List<Collider> Colliders = new List<Collider>(Physics.OverlapSphere(AimDestination, AimRadius,layerMask));
-
+        Colliders.Remove(CurrentPossessed.GetComponent<Collider>());
         if(Colliders.Count > 0)
         {
-            AimedAt = Colliders.Where(obj => obj.gameObject.layer == PossessableLayer).FirstOrDefault().GetComponent<Possessable>();
+            AimedAt = Colliders.Where(obj => obj.gameObject != CurrentPossessed.gameObject).FirstOrDefault().GetComponent<Possessable>();
             OutlineController.Instance.OutlineSingleRenderer(AimedAt.GetComponent<Renderer>());
         }
         else
@@ -105,6 +109,11 @@ public class PlayerController : MonoBehaviour
         }
         
         //Debug.Log(Colliders.Capacity);
+    }
+
+    public void Jump()
+    {
+        CurrentPossessed.Jump();
     }
 
     private void OnDrawGizmos()
@@ -125,10 +134,10 @@ public class PlayerController : MonoBehaviour
 
     public void Possess(Possessable possessable)
     {
-        if(CurrentPossessed)
-        CurrentPossessed.gameObject.layer = PossessableLayer;
+   
+    
         CurrentPossessed = possessable;
-        CurrentPossessed.gameObject.layer = CurrentlyPossessedLayer;
+     
         OnPossession.Invoke();
 
     }

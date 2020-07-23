@@ -33,12 +33,14 @@ public class OutlineController : MonoBehaviour
             DisableOutlines();
 
         PreviousOutlinedRenderer = renderer;
-      
-        
 
-        Material[] matArray = renderer.materials;
-        matArray[1] = OutlineMaterial;
-        renderer.materials = matArray;
+        Material[] matArray1 = PreviousOutlinedRenderer.materials;
+        if (!matArray1.Where(obj=> obj.shader == OutlineMaterial.shader).FirstOrDefault())
+        {
+            List<Material> materials = matArray1.ToList();
+            materials.Add(OutlineMaterial);
+            PreviousOutlinedRenderer.materials = materials.ToArray();
+        }
     }
 
     public void DisableOutlines()
@@ -48,11 +50,18 @@ public class OutlineController : MonoBehaviour
         if (PreviousOutlinedRenderer)
         {
             Material[] matArray1 = PreviousOutlinedRenderer.materials;
-            matArray1[1] = null;
-            PreviousOutlinedRenderer.materials = matArray1;
-            PreviousOutlinedRenderer = null;
-        }
-               
+            
+               Material temp = matArray1.Where<Material>(obj => obj == OutlineMaterial).FirstOrDefault();
+               List<Material> materials =  matArray1.ToList();
+                materials.Remove(materials.Where(obj => obj.shader == OutlineMaterial.shader).FirstOrDefault());
+                PreviousOutlinedRenderer.materials = materials.ToArray();
+            
          
+            
+
+        }
+
+        PreviousOutlinedRenderer = null;
+
     }
 }

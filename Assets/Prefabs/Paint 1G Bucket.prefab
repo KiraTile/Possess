@@ -111,12 +111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78eef3e8d3e9184b8dde95020ab3269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMode: 0
   moveType: 2
+  forceModeTorque: 0
   TorqueMultiplier: 50
   MaxAngularVelocity: 50
+  forceModeForce: 0
   MaxSpeed: 100
   ForcePower: 1
+  forceModeJump: 2
+  JumpForce: 1
 --- !u!64 &317226525
 MeshCollider:
   m_ObjectHideFlags: 0
