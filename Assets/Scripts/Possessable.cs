@@ -7,47 +7,51 @@ using UnityEngine.InputSystem;
 public class Possessable : MonoBehaviour
 
 {
-    Rigidbody RB;
-    Collider collider;
-        [Header("General")]
-
-  
-
-   
     
-
-    [SerializeField]
+    [Header("General"), Tooltip("How game object should be moved?"), SerializeField]
     MoveType moveType = MoveType.Both;
 
-        [Header("Movement by torque")]
-    [SerializeField]
+    [Header("Movement by torque"), Tooltip("Force mode of torque-type movement"), SerializeField]
     ForceMode forceModeTorque;
+
+
     [SerializeField]
     float TorqueMultiplier = 10;
+
+
     [SerializeField]
     float MaxAngularVelocity = 10;
 
-        [Header("Movement by force")]
-    [SerializeField]
+    [Header("Movement by force"), Tooltip("Force mode of force-type movement"), SerializeField]
     ForceMode forceModeForce;
+
+
     [SerializeField]
     float MaxSpeed = 10;
+
+
     [SerializeField]
     float ForcePower = 1;
 
-    [Header("Jumping")]
-    [SerializeField]
-    ForceMode forceModeJump = ForceMode.VelocityChange;
-    [SerializeField]
 
+    [Header("Jumping"), Tooltip("Force mode of the jump"), SerializeField]
+    ForceMode forceModeJump = ForceMode.VelocityChange;
+
+
+    [SerializeField]
     float JumpForce = 1;
+
     bool onGround;
+
+    Rigidbody RB;
+    Collider _collider;
+
     void Start()
     {
         
         RB = GetComponent<Rigidbody>();
         RB.maxAngularVelocity = MaxAngularVelocity;
-        collider = GetComponent<Collider>();
+        _collider = GetComponent<Collider>();
     }
 
     public void Move()
@@ -104,10 +108,15 @@ public class Possessable : MonoBehaviour
             RB.AddForce(Vector3.up * JumpForce, forceModeJump);
         }
     }
-     enum MoveType
+   
+
+    enum MoveType
     {
+        [Tooltip("Movement by torque")]
         Torque,
+        [Tooltip("Movement by force")]
         Force,
+        [Tooltip("Movement by torque and force")]
         Both
           
     }
