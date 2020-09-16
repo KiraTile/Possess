@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if(Colliders.Count > 0)
         {
             AimedAt = Colliders.Where(obj => obj.gameObject != CurrentPossessed.gameObject).FirstOrDefault().GetComponent<Possessable>();
-            OutlineController.Instance.OutlineSingleRenderer(AimedAt.GetComponent<Renderer>());
+            OutlineController.Instance.OutlineSingleRenderer(AimedAt);
         }
         else
         {

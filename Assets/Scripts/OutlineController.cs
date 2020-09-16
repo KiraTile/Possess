@@ -4,9 +4,9 @@ using UnityEngine;
 using System.Linq;
 public class OutlineController : MonoBehaviour
 {
-    public Material OutlineMaterial;
     public static OutlineController Instance;
-    public Renderer PreviousOutlinedRenderer;
+    [SerializeField]
+    Outline previousOutline;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -23,45 +23,17 @@ public class OutlineController : MonoBehaviour
         
     }
 
-    public void OutlineSingleRenderer(Renderer renderer)
+    public void OutlineSingleRenderer(Interactable InteractableObject)
     {
-        if (PreviousOutlinedRenderer == renderer)
-            return;
-
-
-        if (PreviousOutlinedRenderer)
-            DisableOutlines();
-
-        PreviousOutlinedRenderer = renderer;
-
-        Material[] matArray1 = PreviousOutlinedRenderer.materials;
-        if (!matArray1.Where(obj=> obj.shader == OutlineMaterial.shader).FirstOrDefault())
-        {
-            List<Material> materials = matArray1.ToList();
-            materials.Add(OutlineMaterial);
-            PreviousOutlinedRenderer.materials = materials.ToArray();
-        }
+        DisableOutlines();
+        InteractableObject.outline.enabled = true;
+        previousOutline = InteractableObject.outline;
     }
 
     public void DisableOutlines()
     {
-
-
-        if (PreviousOutlinedRenderer)
-        {
-            Material[] matArray1 = PreviousOutlinedRenderer.materials;
-            
-               Material temp = matArray1.Where<Material>(obj => obj == OutlineMaterial).FirstOrDefault();
-               List<Material> materials =  matArray1.ToList();
-                materials.Remove(materials.Where(obj => obj.shader == OutlineMaterial.shader).FirstOrDefault());
-                PreviousOutlinedRenderer.materials = materials.ToArray();
-            
-         
-            
-
-        }
-
-        PreviousOutlinedRenderer = null;
+        if(previousOutline)
+        previousOutline.enabled = false;
 
     }
 }

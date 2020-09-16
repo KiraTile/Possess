@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
+
 [RequireComponent(typeof(Collider))]
-public class Possessable : MonoBehaviour
+public class Possessable : Interactable
 
 {
     
@@ -46,12 +47,12 @@ public class Possessable : MonoBehaviour
     Rigidbody RB;
     Collider _collider;
 
-    void Start()
+    override protected void Awake()
     {
-        
         RB = GetComponent<Rigidbody>();
         RB.maxAngularVelocity = MaxAngularVelocity;
         _collider = GetComponent<Collider>();
+        base.Awake();
     }
 
     public void Move()
