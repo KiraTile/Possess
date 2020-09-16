@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     public void Aim()
     {
 
-        ray = new Ray(CurrentPossessed.GetComponent<Collider>().bounds.center, LastAimDirection);
+        ray = new Ray(PlayerFollower.Instance.Target.bounds.center, LastAimDirection);
         RaycastHit hit;
         //Physics.Raycast(CurrentPossessed.transform.position, LastAimDirection, out hit, AimDistance, layerMask,QueryTriggerInteraction.Collide);
         Physics.Raycast(ray,out hit, AimDistance, layerMask, QueryTriggerInteraction.Collide);
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        CurrentPossessed.Jump();
+        CurrentPossessed?.Jump();
     }
 
     private void OnDrawGizmos()
