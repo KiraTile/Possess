@@ -10,13 +10,8 @@ public class InputController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
-    private void LateUpdate()
+    private void Update()
     {
         InputSystem.Update();
     }

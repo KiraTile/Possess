@@ -99,7 +99,10 @@ public class PlayerController : MonoBehaviour
         Colliders.Remove(CurrentPossessed.GetComponent<Collider>());
         if(Colliders.Count > 0)
         {
-            AimedAt = Colliders.Where(obj => obj.gameObject != CurrentPossessed.gameObject).FirstOrDefault().GetComponent<Possessable>();
+            AimedAt = Colliders.Where(obj => obj.gameObject != CurrentPossessed.gameObject).OrderBy(
+                x => Vector3.Distance(x.transform.position, AimDestination)
+                ).FirstOrDefault().GetComponent<Possessable>();
+
             OutlineController.Instance.OutlineSingleRenderer(AimedAt);
         }
         else
