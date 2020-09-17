@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 230644745}
   - component: {fileID: 230644744}
   m_Layer: 0
-  m_Name: Camera Point
+  m_Name: 'Camera rotation and position follower '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1746,8 +1746,8 @@ Camera:
   m_GameObject: {fileID: 1687258581}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.36320752, g: 0.610849, b: 1, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4784314, g: 0.7019608, b: 0.76470596, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
