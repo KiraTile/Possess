@@ -13,7 +13,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -42,3 +42,4 @@ Material:
     - Color_AD16EE5E: {r: 0.7223474, g: 1.1083429, b: 1.3552004, a: 0}
     - Vector4_D3B3E943: {r: 1, g: 0, b: 0, a: 90}
     - Vector4_DA068D89: {r: 0, g: 1, b: -0.6, a: 2.7}
+  m_BuildTextureStacks: []

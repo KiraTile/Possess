@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 946942017}
   - component: {fileID: 946942016}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Controls tutorial text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1001,7 +1001,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1624,37 +1624,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becd2d78967283844a95d05cbcf3b197, type: 3}
---- !u!1 &1546843321 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7004480918118531114, guid: 5f3660dfea2a6d344b36f86a1e5087bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1658577900}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1546843325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546843321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c511c23a6fb3be48a7443b8c4bf31d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1546843326
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546843321}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1899.3358, y: 0, z: 1899.3358}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1637248403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400250, guid: 97318fbbd96e1824c9f8390c74e20ed3,
@@ -1727,6 +1696,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: base mesh clouds 65k
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004480918118531114, guid: 5f3660dfea2a6d344b36f86a1e5087bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721286941525882102, guid: 5f3660dfea2a6d344b36f86a1e5087bc,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f3660dfea2a6d344b36f86a1e5087bc, type: 3}
