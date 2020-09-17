@@ -6,6 +6,7 @@ public class PlayerFollower : MonoBehaviour
 {
     public static PlayerFollower Instance;
     public Collider Target;
+    public Transform PlayerRotationFollower;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class PlayerFollower : MonoBehaviour
 
         Quaternion LookAtRotationOnly_Y = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
 
-        transform.rotation = LookAtRotationOnly_Y;
+        PlayerRotationFollower.rotation = LookAtRotationOnly_Y;
 
         transform.position = Target.bounds.center;
       

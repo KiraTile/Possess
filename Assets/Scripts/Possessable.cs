@@ -86,16 +86,19 @@ public class Possessable : Interactable
     {
         Vector3 force = PlayerController.Instance.TorqueInput * ForcePower;
 
-        RB.AddForce((PlayerFollower.Instance.transform.right * force.x) * Time.deltaTime, forceModeTorque);
-        RB.AddForce((PlayerFollower.Instance.transform.forward * force.y) * Time.deltaTime, forceModeTorque);
+        RB.AddForce((PlayerFollower.Instance.PlayerRotationFollower.transform.right * force.x) * Time.deltaTime, forceModeTorque);
+        RB.AddForce((PlayerFollower.Instance.PlayerRotationFollower.transform.forward * force.y) * Time.deltaTime, forceModeTorque);
 
     }
      void ApplyTorque()
     {
         Vector3 torque = PlayerController.Instance.TorqueInput * TorqueMultiplier;
 
-        RB.AddTorque((-PlayerFollower.Instance.transform.forward * torque.x) * Time.deltaTime, forceModeTorque);
-        RB.AddTorque((PlayerFollower.Instance.transform.right * torque.y) * Time.deltaTime, forceModeTorque);
+        Quaternion LookAtRotationOnly_Y = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+
+
+        RB.AddTorque((-PlayerFollower.Instance.PlayerRotationFollower.transform.forward * torque.x) * Time.deltaTime, forceModeTorque);
+        RB.AddTorque((PlayerFollower.Instance.PlayerRotationFollower.transform.right * torque.y) * Time.deltaTime, forceModeTorque);
        
     }
 

@@ -81,7 +81,7 @@ public class CameraController : MonoBehaviour
        
 
        transform.RotateAround(targetObject.position, Vector3.up, y_rotate * cameraFollowSmoothness);
-       transform.RotateAround(targetObject.position, -PlayerFollower.Instance.transform.right,  x_rotate * cameraFollowSmoothness);
+       transform.RotateAround(targetObject.position, -PlayerFollower.Instance.PlayerRotationFollower.transform.right,  x_rotate * cameraFollowSmoothness);
 
 
         
