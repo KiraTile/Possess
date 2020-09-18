@@ -14085,6 +14085,7 @@ MonoBehaviour:
   ForceMultiplier: 1000
   forceModeJump: 2
   JumpForce: 1
+  particleSystem: {fileID: 19800002}
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
