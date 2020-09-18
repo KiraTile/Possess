@@ -32,7 +32,7 @@ public class Possessable : Interactable
 
 
     [SerializeField]
-    float ForcePower = 1;
+    float ForceMultiplier = 1;
 
 
     [Header("Jumping"), Tooltip("Force mode of the jump"), SerializeField]
@@ -61,13 +61,13 @@ public class Possessable : Interactable
         {
             case MoveType.Both:
                 {
-                    MoveByForceHorizontal();
+                    MoveByForce();
                     ApplyTorque();
                     break;
                 }
             case MoveType.Force:
                 {
-                    MoveByForceHorizontal();
+                    MoveByForce();
                     break;
                 }
             case MoveType.Torque:
@@ -82,24 +82,26 @@ public class Possessable : Interactable
         
     }
 
-     void MoveByForceHorizontal()
+     void MoveByForce()
     {
-        Vector3 force = PlayerController.Instance.TorqueInput * ForcePower;
+        Vector3 force = PlayerController.Instance.MovementInput * ForceMultiplier;
 
-        RB.AddForce((PlayerFollower.Instance.PlayerRotationFollower.transform.right * force.x) * Time.deltaTime, forceModeTorque);
-        RB.AddForce((PlayerFollower.Instance.PlayerRotationFollower.transform.forward * force.y) * Time.deltaTime, forceModeTorque);
+        RB.AddForce((PlayerFollower.Instance.PlayerRotationFollower.transform.right * force.x) * Time.deltaTime, forceModeForce);
+        RB.AddForce((PlayerFollower.Instance.PlayerRotationFollower.transform.forward * force.y) * Time.deltaTime, forceModeForce);
+        RB.AddForce((Vector3.up * force.z) * Time.deltaTime, forceModeForce);
 
     }
      void ApplyTorque()
     {
-        Vector3 torque = PlayerController.Instance.TorqueInput * TorqueMultiplier;
+        Vector3 torque = PlayerController.Instance.MovementInput * TorqueMultiplier;
 
         Quaternion LookAtRotationOnly_Y = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
 
 
         RB.AddTorque((-PlayerFollower.Instance.PlayerRotationFollower.transform.forward * torque.x) * Time.deltaTime, forceModeTorque);
         RB.AddTorque((PlayerFollower.Instance.PlayerRotationFollower.transform.right * torque.y) * Time.deltaTime, forceModeTorque);
-       
+        RB.AddTorque((PlayerFollower.Instance.PlayerRotationFollower.transform.up * torque.z) * Time.deltaTime, forceModeTorque);
+
     }
 
 
@@ -112,7 +114,17 @@ public class Possessable : Interactable
             RB.AddForce(Vector3.up * JumpForce, forceModeJump);
         }
     }
-   
+
+    public void Possess()
+    {
+
+
+        PlayerController.CurrentPossessed = this;
+
+        PlayerController.OnPossession.Invoke();
+
+    }
+
 
     enum MoveType
     {

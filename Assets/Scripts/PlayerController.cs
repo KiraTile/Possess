@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     Vector3 LastAimDirection;
     float HorizontalInput;
     [HideInInspector]
-    public Vector3 TorqueInput;
+    public Vector3 MovementInput;
     [HideInInspector]
     public Vector3 AimDestination;
 
@@ -42,7 +42,11 @@ public class PlayerController : MonoBehaviour
     {
         Instance = this;
 
-        Possess(StartingPossessed);
+        if (StartingPossessed == null)
+            StartingPossessed = FindObjectOfType(typeof(Possessable)) as Possessable;
+
+        StartingPossessed.Possess();
+
     }
 
 
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour
     }
     public void UpdateTorqueInput(InputAction.CallbackContext context)
     {
-        TorqueInput = context.ReadValue<Vector2>();
+        MovementInput = context.ReadValue<Vector3>();
     }
     public void Aim()
     {
@@ -130,20 +134,16 @@ public class PlayerController : MonoBehaviour
         Aim();
         if(context.started && AimedAt)
         {
-            Possess(AimedAt);
+            AimedAt.Possess();
         }
         
     }
-
-    public void Possess(Possessable possessable)
+    public void SwitchToGhost()
     {
-   
-    
-        CurrentPossessed = possessable;
-     
-        OnPossession.Invoke();
-
+        UnpossessedPlayer.Instance.Possess();
     }
+
+   
 
 
 }

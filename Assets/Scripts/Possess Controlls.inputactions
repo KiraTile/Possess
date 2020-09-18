@@ -33,7 +33,7 @@
                     "name": "Torque Control",
                     "type": "PassThrough",
                     "id": "f09a6a2a-6efd-4002-ade0-0346ebdad3f8",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": ""
                 },
@@ -50,6 +50,14 @@
                     "type": "Button",
                     "id": "a6e46eb3-e41f-44c5-855e-54cf01099412",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Switch to ghost",
+                    "type": "PassThrough",
+                    "id": "2656904a-0a87-4a0f-93bf-121d67b7e34d",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -144,9 +152,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "Custom 3D Vector",
                     "id": "e06901d8-eb6e-42d7-86d8-b29cf2e4e11a",
-                    "path": "2DVector(mode=1)",
+                    "path": "Custom3DVector(modeParameter=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -155,30 +163,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
+                    "name": "Left",
                     "id": "086aa7d8-1b07-40e3-9d83-a53f55119c06",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Torque Control",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "4af33d57-738d-4587-a8d0-9de676a1b4e7",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Torque Control",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "af4cef01-f5d8-4ad7-b218-32afba95200a",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -188,9 +174,53 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "bf3cebd8-7845-4237-b88b-9703a9ca12c4",
+                    "name": "Right",
+                    "id": "4af33d57-738d-4587-a8d0-9de676a1b4e7",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Torque Control",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Backward",
+                    "id": "46376ca1-25fc-493f-9e9e-b432a3941fc4",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Torque Control",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "forward",
+                    "id": "30519b81-c188-4516-bb53-57cef8d1908b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Torque Control",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "af4cef01-f5d8-4ad7-b218-32afba95200a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Torque Control",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Up",
+                    "id": "bf3cebd8-7845-4237-b88b-9703a9ca12c4",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -208,9 +238,37 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d02a5847-933d-44b6-bfb5-3fc574e9f7e8",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Switch to ghost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
