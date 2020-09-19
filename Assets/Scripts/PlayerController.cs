@@ -140,7 +140,10 @@ public class PlayerController : MonoBehaviour
     }
     public void SwitchToGhost()
     {
-        UnpossessedPlayer.Instance.Possess();
+        if (UnpossessedPlayer.Instance)
+            UnpossessedPlayer.Instance.Possess();
+        else
+            Debug.LogError("Unpossessed player(aka ghost) is not initiallized.");
     }
 
    

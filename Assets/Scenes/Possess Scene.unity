@@ -454,10 +454,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soul soft
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d7706cfdb18270946b264f7e7a0fb4c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d7706cfdb18270946b264f7e7a0fb4c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4846385
@@ -502,21 +498,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 497401064, guid: d7706cfdb18270946b264f7e7a0fb4c6, type: 3}
-      propertyPath: ps
-      value: 
-      objectReference: {fileID: 497401069}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7706cfdb18270946b264f7e7a0fb4c6, type: 3}
 --- !u!4 &497401068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d7706cfdb18270946b264f7e7a0fb4c6,
-    type: 3}
-  m_PrefabInstance: {fileID: 497401062}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &497401069 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19800002, guid: d7706cfdb18270946b264f7e7a0fb4c6,
     type: 3}
   m_PrefabInstance: {fileID: 497401062}
   m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class UnpossessedPlayer : Possessable
@@ -16,11 +17,6 @@ public class UnpossessedPlayer : Possessable
 
         base.Awake();
         PlayerController.OnPossession.AddListener(checkAndEnableParticleSystem);
-    }
-
-    new void Possess()
-    {
-        base.Possess();
     }
 
     void StopPlayerParticleSystem()
@@ -41,5 +37,6 @@ public class UnpossessedPlayer : Possessable
             StopPlayerParticleSystem();
     }
 
+    
     
 }
