@@ -130,13 +130,13 @@ MonoBehaviour:
   outline: {fileID: 0}
   moveType: 2
   forceModeTorque: 0
-  TorqueMultiplier: 10000
-  MaxAngularVelocity: 10000
+  TorqueMultiplier: 300000
+  MaxAngularVelocity: 10
   forceModeForce: 0
   MaxSpeed: 10000
-  ForcePower: 100
+  ForceMultiplier: 1
   forceModeJump: 1
-  JumpForce: 10000
+  JumpForce: 5000
 --- !u!114 &1836481305
 MonoBehaviour:
   m_ObjectHideFlags: 0
