@@ -7,27 +7,35 @@ using System.Linq;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
-    [Tooltip("Which object is possessed at the start of the scene")]
-    [SerializeField]
-    Possessable StartingPossessed;
+
     [Tooltip("Currently possessed object")]
     [SerializeField]
     public static Possessable CurrentPossessed;
+
+    [Tooltip("Which object is possessed at the start of the scene")]
+    [SerializeField]
+    Possessable StartingPossessed;
+    
     [Tooltip("Possessable object you are currently aiming at")]
     [SerializeField]
     Possessable AimedAt;
+
     [SerializeField]
     float AimDistance = 3;
+
     [Tooltip("Radius of the circle at the end of the aim raycast. Used to pick up objects you are not directly aiming at(aim assist)")]
     [SerializeField]
     float AimRadius = 1;
+
     [SerializeField]
     LayerMask layerMask;
+
     [Tooltip("Offset of the aim")]
     [SerializeField]
     Vector3 offset;
 
    
+
     Vector3 LastAimDirection;
     float HorizontalInput;
     [HideInInspector]
@@ -40,7 +48,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
 
         if (StartingPossessed == null)
             StartingPossessed = FindObjectOfType(typeof(Possessable)) as Possessable;
