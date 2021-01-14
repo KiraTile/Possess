@@ -89,12 +89,14 @@ public class PlayerController : MonoBehaviour
     {
         MovementInput = context.ReadValue<Vector3>();
     }
+    /// <summary>
+    /// originaly this function had frame limiter since its pretty expensive, but for clarity purposes it have been removed
+    /// </summary>
     public void Aim()
     {
 
         ray = new Ray(PlayerFollower.Instance.Target.bounds.center, LastAimDirection);
         RaycastHit hit;
-        //Physics.Raycast(CurrentPossessed.transform.position, LastAimDirection, out hit, AimDistance, layerMask,QueryTriggerInteraction.Collide);
         Physics.Raycast(ray,out hit, AimDistance, layerMask, QueryTriggerInteraction.Collide);
 
 
@@ -142,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
     public void PossessAction(InputAction.CallbackContext context)
     {
-        Aim();
+        Aim(); //we aim first so we have a target, since we only update our aim at fracture of all frames given 
         if(context.started && AimedAt)
         {
             AimedAt.Possess();
@@ -151,10 +153,10 @@ public class PlayerController : MonoBehaviour
     }
     public void SwitchToGhost()
     {
-        if (UnpossessedPlayer.Instance)
+        Debug.Assert(UnpossessedPlayer.Instance, "Unpossessed player(aka ghost) is not initiallized.");
             UnpossessedPlayer.Instance.Possess();
-        else
-            Debug.LogError("Unpossessed player(aka ghost) is not initiallized.");
+      
+        
     }
 
    
