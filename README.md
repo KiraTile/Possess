@@ -1,3 +1,4 @@
+Disclaimer: I should follow "clean code" rules(remove some spaces, for example). Also, should remove Singleton and just move to reference of a component needed.
 # Possess
 Physics based game where you possess objects and move them by applying different forms of physics forces. Project was made to learn Unity's new input system
 
